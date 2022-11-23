@@ -1,0 +1,111 @@
+:root{
+font-size: 62.5%;
+}
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Raleway;
+    box-sizing: border-box;
+}
+.section-one{
+    background: #448;
+}
+.title{
+    display: flex;
+    justify-content: center;
+}
+.title h1{
+    font-size: 8rem;
+    color: #ffe;
+    padding: 5rem;
+}
+.todo-content{
+    font-size: 1.8rem;
+}
+.todo-options{
+    font-size: 1.2rem;
+}
+.todo-update-btn{
+    font-size: 1.2rem;
+}
+.canvas{
+    background: #112;
+    min-height: 100vh;
+    top: 0;
+}
+.search-box{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding-bottom: 5rem;
+}
+.todo-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #224;
+    padding: 0rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffe;
+    margin-left: -1rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.todo-update-btn{
+    cursor: pointer;
+    display: none;
+}
+.todo-add-btn{
+    cursor: pointer;
+    display: flex;
+}
+input{
+
+    padding-left: 1rem;
+    height: 5rem;
+    width: 70%;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+}
+.todo{
+    padding: 3rem;
+}
+.todo-options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    /* cursor: pointer; */
+}
+.new-todo{
+    display: flex;
+    flex-flow: row nowrap;
+    background: #ffe;
+    padding: 2rem 2rem;
+    margin: auto;
+    justify-content: space-between;
+    border-radius: 0.7rem;
+}
+.todo-date{
+    padding: 0rem 1rem 0rem 0rem; 
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 15%;
+    align-items: center;
+}
+.todo-content{
+    display: flex;
+    width: 65%;
+    padding-right:1rem;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+}
+.todo-update, .todo-delete{
+    padding: 0.5rem;
+    cursor: pointer;
+}
