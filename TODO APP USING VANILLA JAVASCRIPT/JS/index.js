@@ -1,85 +1,90 @@
-const input = document.getElementById('input');
-const addnew = document.getElementById('todo-add-btn');
-const updateIt = document.getElementById('todo-update-btn');
+const input = document.getElementById("input");
+const addnew = document.getElementById("todo-add-btn");
+const updateIt = document.getElementById("todo-update-btn");
 
-const deleteTodo = document.getElementById('todo-delete');
-const updateTodo = document.getElementById('todo-update');
+const deleteTodo = document.getElementById("todo-delete");
+const updateTodo = document.getElementById("todo-update");
 
-const todoList = document.getElementById('todos-list');
+const todoList = document.getElementById("todos-list");
 
 let todoNote = "";
-
 let todoDate = new Date();
-
-
+let id = 0;
+let dateString = todoDate.toDateString();
 
 let AllTodos = {
-    todos : [
-        {
-        "ID" : 1,
-        "date":"10/12/12",
-        "task":"do"        
-        }
-    ]
-}
+  todos: [
+    {
+      ID: 0,
+      date: "none",
+      task: "none",
+    },
+  ],
+};
 
 let newTodo = {
-    "ID" : 2,
-    "date":"10/12/12",
-    "task":"do it now"        
-}
+  date: "",
+  task: "",
+};
 
-console.log(AllTodos);
+const saveTodo = (date, task) => {
+  newTodo = {
+    ID: id,
+    date: date,
+    task: task,
+  };
+  id++;
+  AllTodos.todos.push(newTodo);
+};
 
+const reciveTodo = () => {
+  todoNote = input.value;
+  input.value = "";
+};
 
-// console.log(AllTodos.todos.push(newTodo));
-AllTodos.todos.push(newTodo);
+const changeAdd = () => {
+  updateIt.style.display = "none";
+  addnew.style.display = "flex";
+};
 
-console.log(AllTodos);
+const changeUpdate = () => {
+  addnew.style.display = "none";
+  updateIt.style.display = "flex";
+};
 
-const reciveTodo = () =>{
-    todoNote = input.value;
-    input.value = "";
-}
-
-const changeAdd = () =>{
-    updateIt.style.display = "none";
-    addnew.style.display = "flex";
-}
-const changeUpdate = () =>{
-    addnew.style.display = "none";
-    updateIt.style.display = "flex";
-}
-
-let addtodo = () => {
-    reciveTodo();
- if ( todoNote != "" ) {
+let addTodo = () => {
+  reciveTodo();
+  if (todoNote != "") {
     todoList.innerHTML += `<div class="todo">
     <div class="new-todo">
-    <div class="todo-date">${todoDate.toDateString()}</div>
+    <div class="todo-date">${dateString}</div>
         <div class="todo-content">${todoNote}</div>
         <div class="todo-options">
             <div class="todo-update" id="todo-update">UPDATE</div>
             <div class="todo-delete" id="todo-delete">DELETE</div>
         </div>
     </div>
-</div>`
+</div>`;
+    saveTodo(dateString, todoNote);
     todoNote = "";
-}else{
+  } else {
     window.alert("no task added!");
-}
-}
+  }
+};
 
-addnew.addEventListener('click',addtodo);
+let i = 1;
 
-
-updateTodo.addEventListener('click',()=>{
-    changeUpdate();
+addnew.addEventListener("click", () => {
+  addTodo();
+  console.log(AllTodos.todos[i]);
+  i++;
 });
-updateIt.addEventListener('click',()=>{
-    changeAdd();
-})
 
-updtodo.addEventListener('click',()=>{
-    changeUpdate();
+updateTodo.addEventListener("click", () => {
+  changeUpdate();
 });
+updateIt.addEventListener("click", () => {
+  changeAdd();
+});
+
+
